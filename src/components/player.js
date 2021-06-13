@@ -1,4 +1,6 @@
 import React from 'react';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faPlay, faStepForward, faStepBackward} from '@fortawesome/free-solid-svg-icons';
 
 const Player = () => {
     return(
@@ -9,7 +11,9 @@ const Player = () => {
                 <p>End time</p>
             </div>
             <div className="player-control">
-
+                <FontAwesomeIcon className="previous" size="2x" icon={faStepBackward}/>
+                <FontAwesomeIcon className="play" size="2x" icon={faPlay}/>
+                <FontAwesomeIcon className="next" size="2x" icon={faStepForward}/>
             </div>
         </div>
     )
