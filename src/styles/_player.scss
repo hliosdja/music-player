@@ -10,9 +10,10 @@
     display: flex;
     input {
       width: 100%;
-      padding: 1rem 2rem;
+      padding: 1rem 3rem;
     }
     p {
+      white-space: nowrap;
       padding: 1rem;
     }
   }

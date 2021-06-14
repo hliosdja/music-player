@@ -9,6 +9,7 @@ import Player from './components/player';
 function App() {
   const [songs, setSongs] = useState(data());
   const [currentSong, setCurrentSong] = useState(songs[0]);
+  const [isPlaying, setIsPlaying] = useState(false);
 
   return (
     <div>
@@ -17,7 +18,7 @@ function App() {
         title={currentSong.title}
         artist={currentSong.artist}
       />
-      <Player currentSong={currentSong} setCurrentSong={setCurrentSong} />
+      <Player isPlaying={isPlaying} setIsPlaying={setIsPlaying} currentSong={currentSong} setCurrentSong={setCurrentSong} />
     </div>
   );
 }
