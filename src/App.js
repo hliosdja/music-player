@@ -18,7 +18,7 @@ function App() {
         title={currentSong.title}
         artist={currentSong.artist}
       />
-      <Player isPlaying={isPlaying} setIsPlaying={setIsPlaying} currentSong={currentSong} setCurrentSong={setCurrentSong} />
+      <Player isPlaying={isPlaying} setIsPlaying={setIsPlaying} currentSong={currentSong}/>
     </div>
   );
 }
