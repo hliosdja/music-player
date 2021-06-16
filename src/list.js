@@ -13,7 +13,7 @@ const songList = () =>{
         {
             title: 'Fracture Ray',
             audio: './music/Fracture Ray.mp3',
-            cover: 'https://i1.sndcdn.com/artworks-000374947149-2khdwt-t500x500.jpg',
+            cover: 'https://i1.sndcdn.com/artworks-000374785374-2azoz6-t500x500.jpg',
             artist: 'Sakuzyo',
             id: uuidv4(),
             active: false
