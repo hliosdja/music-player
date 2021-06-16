@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 // data 
 import data from './list.js';
@@ -21,12 +21,16 @@ function App() {
 
   return (
     <div>
-      <Song 
+      <Song
         cover={currentSong.cover}
         title={currentSong.title}
         artist={currentSong.artist}
       />
-      <Player isPlaying={isPlaying} setIsPlaying={setIsPlaying} currentSong={currentSong}/>
+      <Player isPlaying={isPlaying} setIsPlaying={setIsPlaying} currentSong={currentSong} 
+      
+      // setting this here just to remove compile warnings
+      setSongs={setSongs}
+      />
       <Library songs={songs} setCurrentSong={setCurrentSong} currentSong={currentSong} />
     </div>
   );
