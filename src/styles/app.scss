@@ -1,8 +1,14 @@
 @import "./song";
 @import "./player";
+@import "./library";
+@import "./librarySongs";
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
+  font-family: "Lato", sans-serif;
 }

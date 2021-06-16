@@ -1,0 +1,12 @@
+.library-song-list {
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow: scroll;
+  width: 25rem;
+  height: 100%;
+
+  h2 {
+    padding: 1rem 2rem;
+  }
+}

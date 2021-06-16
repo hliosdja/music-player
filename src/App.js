@@ -1,12 +1,20 @@
 import React, {useState} from 'react';
+
+// data 
 import data from './list.js';
+
+// css
 import './styles/app.scss';
 
+// component import
 import Song from './components/song';
 import Player from './components/player';
+import Library from './components/library';
 
 
 function App() {
+
+  // states
   const [songs, setSongs] = useState(data());
   const [currentSong, setCurrentSong] = useState(songs[0]);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -19,6 +27,7 @@ function App() {
         artist={currentSong.artist}
       />
       <Player isPlaying={isPlaying} setIsPlaying={setIsPlaying} currentSong={currentSong}/>
+      <Library songs={songs} setCurrentSong={setCurrentSong} currentSong={currentSong} />
     </div>
   );
 }
