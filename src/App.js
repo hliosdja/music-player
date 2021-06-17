@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 
 // data 
 import data from './list.js';
@@ -13,11 +13,25 @@ import Library from './components/library';
 
 
 function App() {
+  // ref
+  const audioRef = useRef(null);
+
+
+  // event handler
+  const songTimeHandler = (e) => {
+    const current = e.target.currentTime;
+    const duration = e.target.duration;
+    setSongInfo({...songInfo, currentTime: current, duration})
+  }
 
   // states
   const [songs, setSongs] = useState(data());
   const [currentSong, setCurrentSong] = useState(songs[0]);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [songInfo, setSongInfo] = useState({
+    currentTime: 0,
+    duration: 0
+  })
 
   return (
     <div>
@@ -26,12 +40,10 @@ function App() {
         title={currentSong.title}
         artist={currentSong.artist}
       />
-      <Player isPlaying={isPlaying} setIsPlaying={setIsPlaying} currentSong={currentSong} 
-      
-      // setting this here just to remove compile warnings
-      setSongs={setSongs}
+      <Player isPlaying={isPlaying} setIsPlaying={setIsPlaying} currentSong={currentSong} audioRef={audioRef} songInfo={songInfo} setSongInfo={setSongInfo}
       />
-      <Library songs={songs} setCurrentSong={setCurrentSong} currentSong={currentSong} />
+      <Library songs={songs} setCurrentSong={setCurrentSong} audioRef={audioRef} isPlaying={isPlaying}/>
+      <audio onTimeUpdate={songTimeHandler} onLoadedMetadata={songTimeHandler} ref={audioRef} src={currentSong.audio}></audio>
     </div>
   );
 }

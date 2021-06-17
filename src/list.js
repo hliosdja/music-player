@@ -17,6 +17,30 @@ const songList = () =>{
             artist: 'Sakuzyo',
             id: uuidv4(),
             active: false
+        },
+        {
+            title: 'Preserved Valkyria',
+            audio: './music/Preserved Valkyria.mp3',
+            cover: 'https://remywiki.com/images/0/03/Preserved_Valkyria_NOV.png',
+            artist: 'penerori',
+            id: uuidv4(),
+            active: false
+        },
+        {
+            title: 'Xepher',
+            audio: './music/Xepher.mp3',
+            cover: 'https://i1.sndcdn.com/artworks-000087708474-cvc127-t500x500.jpg',
+            artist: 'Tatsh',
+            id: uuidv4(),
+            active: false
+        },
+        {
+            title: 'Pragmatism',
+            audio: './music/Pragmatism.mp3',
+            cover: 'https://s.zimedia.com.tw/s/r5i9Gq-2',
+            artist: 'Laur',
+            id: uuidv4(),
+            active: false
         }
     ];
 }
