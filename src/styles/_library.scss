@@ -7,12 +7,26 @@
   height: 100%;
   box-shadow: 5px 5px 50px #7c7a7a;
   background: white;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: all ease-out 0.3s;
 
   h2 {
     padding: 1rem 2rem;
   }
 }
 
+.active-song {
+  background: rgb(94, 174, 201);
+}
+
+.show-library {
+  transform: translateX(0%);
+  opacity: 1;
+  transition: all ease-in 0.3s;
+}
+
+// scrollbars
 * {
   scrollbar-width: thin;
   scrollbar-color: rgba(155, 155, 155, 0.5) transparent;

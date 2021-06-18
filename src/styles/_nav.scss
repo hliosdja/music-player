@@ -1,0 +1,31 @@
+.nav-container {
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 50%;
+  margin: 0 auto;
+  padding: 2rem;
+
+  h3 {
+    font-size: 1.5em;
+  }
+
+  button {
+    padding: 0.5rem;
+    background: white;
+    color: rgb(78, 76, 76);
+    border: none;
+    border: 3px solid rgb(78, 76, 76);
+
+    p {
+      font-size: 1.2em;
+    }
+
+    &:hover {
+      background: rgb(78, 76, 76);
+      color: white;
+      border: 3px double white;
+    }
+  }
+}
