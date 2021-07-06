@@ -1,17 +1,16 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from "react";
 
-// data 
-import data from './list.js';
+// data
+import data from "./list.js";
 
 // css
-import './styles/app.scss';
+import "./styles/app.scss";
 
 // component import
-import Song from './components/song';
-import Player from './components/player';
-import Library from './components/library';
-import Nav from './components/nav';
-
+import Song from "./components/song";
+import Player from "./components/player";
+import Library from "./components/library";
+import Nav from "./components/nav";
 
 function App() {
   // ref
@@ -21,8 +20,8 @@ function App() {
   const songTimeHandler = (e) => {
     const current = e.target.currentTime;
     const duration = e.target.duration;
-    setSongInfo({...songInfo, currentTime: current, duration})
-  }
+    setSongInfo({ ...songInfo, currentTime: current, duration });
+  };
 
   // states
   const [songs, setSongs] = useState(data());
@@ -30,10 +29,10 @@ function App() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [songInfo, setSongInfo] = useState({
     currentTime: 0,
-    duration: 0
-  })
+    duration: 0,
+  });
   const [libraryStatus, setLibraryStatus] = useState(false);
-  
+
   return (
     <div>
       <Nav libraryStatus={libraryStatus} setLibraryStatus={setLibraryStatus} />
@@ -42,10 +41,32 @@ function App() {
         title={currentSong.title}
         artist={currentSong.artist}
       />
-      <Player isPlaying={isPlaying} setIsPlaying={setIsPlaying} currentSong={currentSong} audioRef={audioRef} songInfo={songInfo} setSongInfo={setSongInfo}
+      <Player
+        isPlaying={isPlaying}
+        setIsPlaying={setIsPlaying}
+        songs={songs}
+        currentSong={currentSong}
+        setCurrentSong={setCurrentSong}
+        id={currentSong.id}
+        audioRef={audioRef}
+        songInfo={songInfo}
+        setSongInfo={setSongInfo}
       />
-      <Library id={currentSong.id} songs={songs} setSongs={setSongs} setCurrentSong={setCurrentSong} audioRef={audioRef} isPlaying={isPlaying} libraryStatus={libraryStatus}/>
-      <audio onTimeUpdate={songTimeHandler} onLoadedMetadata={songTimeHandler} ref={audioRef} src={currentSong.audio}></audio>
+      <Library
+        id={currentSong.id}
+        songs={songs}
+        setSongs={setSongs}
+        setCurrentSong={setCurrentSong}
+        audioRef={audioRef}
+        isPlaying={isPlaying}
+        libraryStatus={libraryStatus}
+      />
+      <audio
+        onTimeUpdate={songTimeHandler}
+        onLoadedMetadata={songTimeHandler}
+        ref={audioRef}
+        src={currentSong.audio}
+      ></audio>
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import LibrarySongs from './lirarySongs';
 
-const Library = ({id, songs, setSongs, setCurrentSong, audioRef, isPlaying, libraryStatus}) => {
+const Library = ({id, songs, setSongs, setCurrentSong, audioRef, isPlaying, libraryStatus, key}) => {
     return(
         <div className={`library-song-list ${libraryStatus ? 'show-library' : ''}`}>
             <h2>Library</h2>
