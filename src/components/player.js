@@ -48,18 +48,21 @@ const Player = ({
     }
   };
 
-  const skipSongHandler = (direction) => {
+  const skipSongHandler = async (direction) => {
     let currentSongIndex = songs.findIndex(
       (songs) => songs.id === currentSong.id
     );
     if (direction === "previous") {
       if ((currentSongIndex - 1) % songs.length === -1) {
-        setCurrentSong(songs[songs.length - 1]);
+        await setCurrentSong(songs[songs.length - 1]);
+        if (isPlaying) audioRef.current.play();
         return;
       }
-      setCurrentSong(songs[(currentSongIndex - 1) % songs.length]);
+      await setCurrentSong(songs[(currentSongIndex - 1) % songs.length]);
+      if (isPlaying) audioRef.current.play();
     } else if (direction === "next") {
-      setCurrentSong(songs[(currentSongIndex + 1) % songs.length]);
+      await setCurrentSong(songs[(currentSongIndex + 1) % songs.length]);
+      if (isPlaying) audioRef.current.play();
     }
   };
 
@@ -82,7 +85,7 @@ const Player = ({
         <input
           onChange={songSeekHandler}
           min={0}
-          max={songInfo.duration || 0}
+          max={isPlaying ? songInfo.duration : "0:00"}
           value={songInfo.currentTime}
           type="range"
         />

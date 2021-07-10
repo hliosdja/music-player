@@ -10,12 +10,11 @@ const LibrarySongs = ({
   isPlaying,
 }) => {
   // event handlers
-  const songSelectHandler = () => {
-    setCurrentSong(song);
+  const songSelectHandler = async () => {
+    await setCurrentSong(song);
 
     // set the song to active and highlight active song
     const activeSong = songs.map((track) => {
-      console.log(track);
       if (track.id === song.id) {
         return {
           ...track,
@@ -30,14 +29,7 @@ const LibrarySongs = ({
     });
     setSongs(activeSong);
 
-    if (isPlaying) {
-      const playPromise = audioRef.current.play();
-      if (playPromise !== undefined) {
-        playPromise.then((audio) => {
-          audioRef.current.play();
-        });
-      }
-    }
+    if (isPlaying) audioRef.current.play();
   };
 
   return (

@@ -23,6 +23,14 @@ function App() {
     setSongInfo({ ...songInfo, currentTime: current, duration });
   };
 
+  const autoSkipAfterEnd = async () => {
+    let currentSongIndex = songs.findIndex(
+      (songs) => songs.id === currentSong.id
+    );
+    await setCurrentSong(songs[(currentSongIndex + 1) % songs.length]);
+    if (isPlaying) audioRef.current.play();
+  };
+
   // states
   const [songs, setSongs] = useState(data());
   const [currentSong, setCurrentSong] = useState(songs[0]);
@@ -67,6 +75,7 @@ function App() {
         onLoadedMetadata={songTimeHandler}
         ref={audioRef}
         src={currentSong.audio}
+        onEnded={autoSkipAfterEnd}
       ></audio>
     </div>
   );
