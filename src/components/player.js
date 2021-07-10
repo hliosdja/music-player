@@ -88,11 +88,11 @@ const Player = ({
         <input
           onChange={songSeekHandler}
           min={0}
-          max={isPlaying ? songInfo.duration : "0:00"}
+          max={songInfo.duration || 0}
           value={songInfo.currentTime}
           type="range"
         />
-        <p>{timeFormat(songInfo.duration)}</p>
+        <p>{songInfo.duration ? timeFormat(songInfo.duration) : "0:00"}</p>
       </div>
       <div className="player-control">
         <FontAwesomeIcon
