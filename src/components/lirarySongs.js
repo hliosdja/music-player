@@ -13,7 +13,7 @@ const LibrarySongs = ({
   const songSelectHandler = async () => {
     await setCurrentSong(song);
 
-    // set the song to active and highlight active song
+    // set the song to active, highlight active song and play active song
     const activeSong = songs.map((track) => {
       if (track.id === song.id) {
         return {
@@ -28,8 +28,8 @@ const LibrarySongs = ({
       }
     });
     setSongs(activeSong);
-
     if (isPlaying) audioRef.current.play();
+    console.log("from librarySongs.js");
   };
 
   return (
