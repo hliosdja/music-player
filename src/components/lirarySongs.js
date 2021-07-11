@@ -29,7 +29,6 @@ const LibrarySongs = ({
     });
     setSongs(activeSong);
     if (isPlaying) audioRef.current.play();
-    console.log("from librarySongs.js");
   };
 
   return (

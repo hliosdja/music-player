@@ -29,3 +29,15 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .player-container {
+    .time-control {
+      width: 80%;
+    }
+
+    .player-control {
+      width: 60%;
+    }
+  }
+} ;

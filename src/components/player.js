@@ -33,7 +33,7 @@ const Player = ({
 
   const activeLibrarySongHandler = (songIndex) => {
     const activeSong = songs.map((track) => {
-      if (track.id === currentSong.id) {
+      if (track.id === songIndex.id) {
         return {
           ...track,
           active: true,
@@ -61,12 +61,11 @@ const Player = ({
       }
       await setCurrentSong(songs[(currentSongIndex - 1) % songs.length]);
       activeLibrarySongHandler(songs[(currentSongIndex - 1) % songs.length]);
-      if (isPlaying) audioRef.current.play();
     } else if (direction === "next") {
       await setCurrentSong(songs[(currentSongIndex + 1) % songs.length]);
       activeLibrarySongHandler(songs[(currentSongIndex + 1) % songs.length]);
-      if (isPlaying) audioRef.current.play();
     }
+    if (isPlaying) audioRef.current.play();
   };
 
   const songSeekHandler = (e) => {
