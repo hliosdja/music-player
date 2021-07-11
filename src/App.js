@@ -23,11 +23,29 @@ function App() {
     setSongInfo({ ...songInfo, currentTime: current, duration });
   };
 
+  const activeLibrarySongHandler = (songIndex) => {
+    const activeSong = songs.map((track) => {
+      if (track.id === songIndex.id) {
+        return {
+          ...track,
+          active: true,
+        };
+      } else {
+        return {
+          ...track,
+          active: false,
+        };
+      }
+    });
+    setSongs(activeSong);
+  };
+
   const autoSkipAfterEnd = async () => {
     let currentSongIndex = songs.findIndex(
       (songs) => songs.id === currentSong.id
     );
     await setCurrentSong(songs[(currentSongIndex + 1) % songs.length]);
+    activeLibrarySongHandler(songs[(currentSongIndex + 1) % songs.length]);
     if (isPlaying) audioRef.current.play();
   };
 
