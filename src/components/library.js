@@ -8,8 +8,8 @@ const Library = ({
   setCurrentSong,
   audioRef,
   isPlaying,
+  setIsPlaying,
   libraryStatus,
-  key,
 }) => {
   return (
     <div className={`library-song-list ${libraryStatus ? "show-library" : ""}`}>
@@ -24,6 +24,7 @@ const Library = ({
             setCurrentSong={setCurrentSong}
             audioRef={audioRef}
             isPlaying={isPlaying}
+            setIsPlaying={setIsPlaying}
           />
         ))}
       </div>

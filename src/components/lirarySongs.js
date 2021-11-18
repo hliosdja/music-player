@@ -1,13 +1,13 @@
 import React from "react";
 
 const LibrarySongs = ({
-  id,
   songs,
   song,
   setSongs,
   setCurrentSong,
   audioRef,
   isPlaying,
+  setIsPlaying
 }) => {
   // event handlers
   const songSelectHandler = async () => {
@@ -28,7 +28,8 @@ const LibrarySongs = ({
       }
     });
     setSongs(activeSong);
-    if (isPlaying) audioRef.current.play();
+    setIsPlaying(!isPlaying);
+    audioRef.current.play();
   };
 
   return (
